@@ -1,0 +1,50 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model.Value("pageTitle")?.ToString();
+}
+
+
+ <section class="projects-list-section">
+        <div class="container-projects-list">
+            <!-- Project List -->
+            <div class="projects-list">
+                <div class="project-item">
+                    <img src="@Model.Value("contentProjects")" alt="Annual Report for Juva Inc.">
+                    <div class="project-info">
+                        <h3>Annual Report for Juva Inc.</h3>
+                        <p class="date">June 15, 2024</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis unde omnis iste natus error.</p>
+                        <a href="#" class="read-more">Read more &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="bilder\pj2 bussiness.svg" alt="Business Insights for SP Group">
+                    <div class="project-info">
+                        <h3>Business Insights for SP Group</h3>
+                        <p class="date">May 17, 2024</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis unde omnis iste natus error.</p>
+                        <a href="#" class="read-more">Read more &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="bilder\pj3 financ.svg" alt="Financial Advisors for Irra Group">
+                    <div class="project-info">
+                        <h3>Financial Advisors for Irra Group</h3>
+                        <p class="date">February 6, 2024</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis unde omnis iste natus error.</p>
+                        <a href="#" class="read-more">Read more &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="bilder\pj4 budget.svg" alt="Budget Planning for Buccura Inc.">
+                    <div class="project-info">
+                        <h3>Budget Planning for Buccura Inc.</h3>
+                        <p class="date">January 3, 2024</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis unde omnis iste natus error.</p>
+                        <a href="#" class="read-more">Read more &rarr;</a>
+                    </div>
+                </div>
+            </div>
+  @await Html.PartialAsync("Partials/Static/ContactSection.cshtml")

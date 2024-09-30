@@ -1,0 +1,60 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model.Value("pageTitle")?.ToString();
+}
+
+
+
+
+
+
+<!-- project Section -->
+<section class="projects-section">
+    <div class="container-projects">
+        <div class="main-content">
+            <article>
+
+           @Model.Value("contentProjectDetails")
+              
+
+            </article>  
+        </div>
+        <aside class="sidebar">
+            <div class="recent-projects">
+                <h4>Recent projects</h4>
+                <ul>
+                    <li><a href="#">Annual Report for Juva Inc.</a><span class="date">June 15, 2024</span></li>
+                    <li><a href="#">Business Insights for SP Group Inc.</a><span class="date">May 17, 2024</span></li>
+                    <li><a href="#">Financial Advisors for Irra Group Inc.</a><span class="date">February 6, 2024</span></li>
+                    <li><a href="#">Budget Planning for Buccura Inc.</a><span class="date">January 3, 2024</span></li>
+                </ul>
+            </div>
+            <div class="tags">
+                <h4>Tags</h4>
+                <div class="tag-list">
+                    <a href="#">Report</a>
+                    <a href="#">Business plans</a>
+                    <a href="#">Insights</a>
+                    <a href="#">Business</a>
+                    <a href="#">App</a>
+                    <a href="#">Project</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Pricing</a>
+                </div>
+            </div>
+            <div class="help-box">
+                <h4>How can we help you?</h4>
+                <p>Online support 24/7, we are here to help you.</p>
+                <form>
+                    <input type="email" placeholder="Email address">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+</section>
+
+ @await Html.PartialAsync("Partials/Static/ContactSection.cshtml")

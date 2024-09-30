@@ -1,0 +1,87 @@
+﻿
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Extensions
+
+@{
+	Layout = "mainLayout.cshtml";
+     ViewBag.Title = Model.Value("pageTitle")?.ToString();
+}
+
+
+
+  
+   <section class="about-content-section">
+            <div class="container-about-content">
+                <div class="image-container">
+                    <img src="@Model.Value("aboutPageImage")" alt="Tina Fox - CEO & Founder at Onatrix">
+                    <p>@Model.Value("aboutPageTextAuthor")</p>
+                </div>
+                <div class="text-container">
+                    <blockquote>
+                        "@Model.Value("aboutPageQoute")"
+                    </blockquote>
+                    <p>@Model.Value("aboutPageText")</p>
+                </div>
+            </div>
+        
+    </section>
+
+     <section class="trusted-by-section">
+        <div class="container-trusted-by">
+            <div class="text-container">
+                <h4>@Model.Value("trustedTitle")</h4>
+                <h2>@Model.Value("trustedHeadline")</h2>
+                <p>@Model.Value("trustedText")</p>
+                <div class="review-info">
+                    <span>@Model.Value("trustedReview")</span>
+                    <p>@Model.Value("trustedNameText")<br><strong></strong></p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="@Model.Value("trustedImage")" alt="Kevin Gardner - Swebank">
+            </div>
+        </div>
+    </section>
+ <section class="expert-team-section">
+        <div class="container-expert-team">
+            <h4>@Model.Value("teamTitle")</h4>
+            <h2>@Model.Value("teamHeadline")</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="@Model.Value("teamImgBrandon")" alt="Brandon Newton">
+                    <p>@Model.Value("textBrandon")</p>
+                </div>
+                <div class="team-member">
+                    <img src="@Model.Value("imgAj")" alt="AJ Carter">
+                    <p>@Model.Value("textAj")</p>
+                </div>
+                <div class="team-member">
+                    <img src="@Model.Value("imgAaron")" alt="Aaron Lambert">
+                    <p>@Model.Value("textAaron")</p>
+                </div>
+    
+                <div class="team-member">
+                    <div>
+                        <img src="@Model.Value("imgTina")" alt="Tina Fox">
+                        <p>@Model.Value("textTina")</p>
+                    </div>
+                    <div>
+                        <img src="@Model.Value("imgBrandonK")" alt="Brandon Kerr">
+                        <p>@Model.Value("textBrandonK")</p>
+                    </div>
+                    <div>
+                        <img src="@Model.Value("imgMiranda")" alt="Miranda Dayton">
+                        <p>@Model.Value("textMiranda")</p>
+                    </div>
+                    <div>
+                        <img src="@Model.Value("imgKevin")" alt="Kevin Gardner">
+                        <p>@Model.Value("textKevin")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+ @await Html.PartialAsync("Partials/Static/ContactSection.cshtml")

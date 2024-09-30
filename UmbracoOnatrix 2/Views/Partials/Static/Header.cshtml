@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage");
+    var address = settings?.Value<string>("address") ?? "Klarabergsviadukten 90, 111 64 Stockholm";
+    var facebookLink = settings?.Value<string>("facebookLink") ?? "#";
+    var twitterLink = settings?.Value<string>("twitterLink") ?? "#";
+    var linkedInLink = settings?.Value<string>("linkedinLink") ?? "#";
+    var siteLogo = settings?.Value<IPublishedContent>("siteLogo")?.Url() ?? "/bilder/Brand.png";
+}
+
+<header>
+    <div class="top-bar">
+        <div class="container">
+            <div class="address">@address</div>
+            <div class="social-media">
+                <a href="@facebookLink" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="@twitterLink" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="@linkedInLink" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-nav">
+        <div class="container">
+            <div class="logo">
+                <img src="/" alt="Onatrix">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-icon">
+                <a href="#"><img src="/bilder/Search-img.svg" alt="Search"></a>
+            </div>
+        </div>
+    </div>
+</header>
+

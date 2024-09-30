@@ -1,0 +1,63 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+      ViewBag.Title = Model.Value("pageTitle")?.ToString();
+}
+
+
+
+
+<section class="content-section">
+    <div class="container-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="about-us">
+                <img src="bilder/image-24-min-2.svg" alt="About Us">
+                <p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</p>
+            </div>
+            <div class="help-box">
+                <h3>How can we help you?</h3>
+                <p>Online support 24/7, we are here to help you</p>
+                <form>
+                    <input type="email" placeholder="Email address">
+                    <button type="submit">Get Started</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Corrected the image reference -->
+            <img src="@Model.Value("imageRisk")" alt="Main Content Image"> 
+            <h3>Key Point</h3>
+            <ul>
+                <!-- Display the dynamic content -->
+                <li>@Model.Value("mainContent")</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="question-section">
+    <div class="container-question">
+        <h3>Have a question?</h3>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Question" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+    
+
+    
+ @await Html.PartialAsync("Partials/Static/ContactSection.cshtml")
+
+
+    

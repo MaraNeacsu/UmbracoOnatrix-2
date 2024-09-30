@@ -1,0 +1,182 @@
+﻿
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Extensions
+
+@{
+    Layout = "mainLayout.cshtml"; 
+    ViewBag.Title = Model.Value("pageTitle")?.ToString();
+
+    var heroImage = Model?.Value<IPublishedContent>("heroImage")?.Url() ?? "";
+    var aboutImage = Model?.Value<IPublishedContent>("aboutImage")?.Url() ?? "";
+   
+    
+    var rootNode = Model!.Root();
+    
+
+    
+
+
+}
+
+
+<section class="hero">
+    <div class="container-hero">
+        <div class="hero-text">
+            <h1>@Model!.Value("heroHeadline")</h1> 
+            <p>@Model!.Value("heroText")</p>
+            <a href="@Model!.Value("heroButtonUrl")" class="btn">@Model!.Value("heroButtonText")</a>
+        </div>
+        <div class="hero-image">
+            <img src="@heroImage" alt="Hero Image">
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container-about">
+        <div class="about-content">
+            <h4>@Model.Value("aboutSectionTitle")</h4>
+            <h2>@Model.Value("aboutHeadline")</h2>
+            <blockquote class="quote">@Model.Value("aboutQuote")</blockquote>
+            <p>@Model.Value("aboutText")</p>
+            <div class="signature">
+                <img src="@aboutImage" alt="Signature">
+                <p>@Model.Value("aboutSignature")</p>
+            </div>
+        </div>
+    </div>
+       <div class="request">
+                <h3>Request a call back</h3>
+                <p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
+                <form>
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email address" required>
+                    <input type="tel" name="phone" placeholder="Phone" required>
+                    <select name="service" required>
+                        <option value="">Financial consulting</option>
+                        <option value="accounting">Accounting</option>
+                        <option value="investment">Investment</option>
+                    </select>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+<section class="services-section">
+    <div class="container-services">
+        <h4>@Model.Value("servicesSectionTitle")</h4>
+        <h2>@Model.Value("servicesSectionHeadline")</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="@Model.Value("imageRisk")" alt="Risk Management">
+                <h3>@Model.Value("textRisk")</h3>
+                <p>@Model.Value("descriptionRisk")</p>
+            
+                </div>
+                <div class="service-card">
+                    <img src="@Model.Value("imageBond")" alt="Bonds & Commodities">
+                    <h3>@Model.Value("bondText")</h3>
+                    <p>@Model.Value("bondText")</p>
+                </div>
+                <div class="service-card">
+                    <img src="@Model.Value("imageAssurance")" alt="Assurance & Audits">
+                    <h3>@Model.Value("textAssurance")</h3>
+                    <p>@Model.Value("descriptionAssurance")</p>
+                </div>
+                <div class="service-card">
+                    <img src="@Model.Value("imageTax")" alt="Tax and Trusts">
+                    <h3>@Model.Value("textTax")</h3>
+                    <p>@Model.Value("descriptionTax")</p>
+                </div>
+                <div class="service-card">
+                    <img src="@Model.Value("imageFinancial")" alt="Financial Advisor">
+                    <h3>@Model.Value("textFinancial")</h3>
+                    <p>@Model.Value("descriptionFinancial")</p>
+                </div>
+                <div class="service-card">
+                    <img src="@Model.Value("imageStatistic")" alt="Statistic Advisors">
+                    <h3>@Model.Value("textStatistic")</h3>
+                    <p>@Model.Value("descriptionStatistic")</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <section class="trusted-section">
+        <div class="container-trusted">
+            <h2>@Model.Value("trustedHeadline")</h2>
+          
+            <p>@Model.Value("trustedText")</p>
+            <a href="@Model.Value("trustedButtonUrl")" class="btn">@Model.Value("trustedButtonText")</a>
+            <div class="client-group">
+                <img src="@Model.Value("trustedImage")" alt="Trusted Clients">
+            </div>
+        </div>
+    </section>
+
+     <section class="success-story-section">
+        <div class="container-success">
+            <h4>@Model.Value("successTitle")</h4>
+            <h2>@Model.Value("successHeadline")</h2>
+            <div class="statistics">
+                <div class="stat-item">
+                    <h3>@Model.Value("successNumber1")</h3>
+                    <p>@Model.Value("successNumber1Text")</p>
+                </div>
+                <div class="stat-item">
+                    <h3>@Model.Value("successNumber2")</h3>
+                    <p>@Model.Value("successNumber2Text")</p>
+                </div>
+                <div class="stat-item">
+                    <h3>@Model.Value("successNumber3")</h3>
+                    <p>@Model.Value("successNumber3Text")</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="@Model.Value("successImage")" alt="Success Story Image">
+            </div>
+        </div>
+    </section>
+
+    <section class="recent-projects-section">
+    <div class="container-projects">
+        <h4>@Model.Value("projectTitle")</h4>
+        <h2>@Model.Value("projectHeadline")</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="@Model.Value("projectImage1")" alt="Annual Report for Juva Inc.">
+                <div class="project-info">
+                    <h3>@Model.Value("projectImageText")</h3>
+                    <p>@Model.Value("textImage1")</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="@Model.Value("projectImage2")" alt="Business Insights for SP Group Inc.">
+                <div class="project-info">
+                    <h3>@Model.Value("projectImageText2")</h3>
+                    <p>@Model.Value("imageText2"))</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="@Model.Value("projectImage3") alt="Financial Advisors to Irra Corp Inc.">
+                <div class="project-info">
+                    <h3>@Model.Value("projectImageText3")</h3>
+                    <p>@Model.Value("imageText3")</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="@Model.Value("projectImage4")" alt="Budget Planning for Buccura Inc.">
+                <div class="project-info">
+                    <h3>@Model.Value("projectImageText4")</h3>
+                    <p>@Model.Value("imageText4")</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+

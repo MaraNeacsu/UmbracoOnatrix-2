@@ -1,0 +1,17 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model.Value("pageTitle")?.ToString();
+}
+
+
+ @await Html.PartialAsync("Partials/Static/ContactSection.cshtml")
+ 
+<section class="contact-form-section">
+    <div class="map-bg">
+        <img src="@Model.Value("imgMap")" alt="Map Background">
+    </div>
+    
+   
+</section>

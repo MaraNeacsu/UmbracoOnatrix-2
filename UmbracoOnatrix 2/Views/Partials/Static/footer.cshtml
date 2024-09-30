@@ -1,0 +1,20 @@
+﻿
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    // Preluăm conținutul de la root pentru a accesa pagina de Settings
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage");
+
+    // Preluăm datele din câmpurile definite
+    var footerText = settings?.Value<string>("footerText") ?? "© Onatrix. All Rights Reserved.";
+    var footerLinkText = settings?.Value<string>("footerLinkText") ?? "Themesflat";
+    var footerLinkUrl = settings?.Value<string>("footerLinkUrl") ?? "#";
+}
+
+<footer class="footer">
+    <div class="container-footer">
+        <p>@footerText Credits to <a href="@footerLinkUrl">@footerLinkText</a></p>
+    </div>
+</footer>
