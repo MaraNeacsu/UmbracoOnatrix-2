@@ -2,13 +2,16 @@
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
 
 @{
+
     var rootContents = UmbracoHelper.ContentAtRoot();
-    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage");
-    var address = settings?.Value<string>("address") ?? "Klarabergsviadukten 90, 111 64 Stockholm";
-    var facebookLink = settings?.Value<string>("facebookLink") ?? "#";
-    var twitterLink = settings?.Value<string>("twitterLink") ?? "#";
-    var linkedInLink = settings?.Value<string>("linkedinLink") ?? "#";
-    var siteLogo = settings?.Value<IPublishedContent>("siteLogo")?.Url() ?? "/bilder/Brand.png";
+    var homePage = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "homePage");
+    
+ 
+    var address = homePage?.Value<string>("address") ?? "Klarabergsviadukten 90, 111 64 Stockholm";
+    var facebookLink = homePage?.Value<string>("facebookLink") ?? "#";
+    var twitterLink = homePage?.Value<string>("twitterLink") ?? "#";
+    var linkedInLink = homePage?.Value<string>("linkedinLink") ?? "#";
+    var siteLogo = homePage?.Value<IPublishedContent>("siteLogo")?.Url() ?? "/bilder/Brand.png";
 }
 
 <header>
@@ -16,9 +19,9 @@
         <div class="container">
             <div class="address">@address</div>
             <div class="social-media">
-                <a href="@facebookLink" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="@twitterLink" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-                <a href="@linkedInLink" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="@facebookLink" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="@twitterLink" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="@linkedInLink" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </div>
@@ -26,19 +29,21 @@
     <div class="main-nav">
         <div class="container">
             <div class="logo">
-                <img src="/" alt="Onatrix">
+                <img src="@siteLogo" alt="Onatrix">
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="search-icon">
-                <a href="#"><img src="/bilder/Search-img.svg" alt="Search"></a>
-            </div>
+         <nav>
+    <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/contact/">Contact</a></li>
+    </ul>
+</nav>
+     <div class="search-icon">
+    <a href="#"><i class="fas fa-search"></i></a>
+</div>
+
+
         </div>
     </div>
 </header>

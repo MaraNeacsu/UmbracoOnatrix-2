@@ -14,7 +14,7 @@ body, ul {
     align-items: center;
 }
 
-/* Top bar styles */
+
 .top-bar {
     background-color: #4F5955;
     color: white;
@@ -32,12 +32,10 @@ body, ul {
     font-size: 25px;
 }
 
-.top-bar .social-media img {
-    width: 40px;
-    height: 40px;
-}
 
-/* Main navigation styles */
+
+
+
 .main-nav {
     background-color: white;
     padding: 10px 0;
@@ -67,14 +65,28 @@ body, ul {
     font-weight: bold;
 }
 
-.main-nav .search-icon img {
-    width: 20px;
-    height: 20px;
+.search-icon {
+    display: flex;
+    align-items: center;
 }
 
-/* Responsive Design */
+.search-icon a {
+    text-decoration: none;
+    color: #333; 
+    transition: color 0.3s ease;
+}
 
-/* Tablet Screens (max-width: 1024px) */
+.search-icon a:hover {
+    color: #007bff; 
+}
+
+.search-icon i {
+    font-size: 20px; 
+}
+
+
+
+
 @media screen and (max-width: 1024px) {
     .container {
         width: 90%;
@@ -93,7 +105,7 @@ body, ul {
     }
 }
 
-/* Mobile Screens (max-width: 768px) */
+
 @media screen and (max-width: 768px) {
     .container {
         width: 100%;
@@ -303,7 +315,7 @@ body, ul {
 
 .request form button {
     padding: 12px;
-    background-color: #e0d7c6; /* Button color */
+    background-color: #e0d7c6; 
    
     font-size: 18px;
     border: none;
@@ -388,7 +400,7 @@ body, ul {
     padding: 60px 0;
     text-align: center;
     position: relative;
-    background-image: url('bilder/background-pattern.png'); /* Background image for the world map */
+    background-image: url('bilder/background-pattern.png'); 
     background-repeat: no-repeat;
     background-position: center top;
     background-size: contain;
@@ -449,7 +461,7 @@ body, ul {
     padding: 60px 0;
     text-align: center;
     color: white;
-    background-image: url('bilder/world-map-pattern.png'); /* World map background image */
+    background-image: url('bilder/world-map-pattern.png');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -583,6 +595,7 @@ body, ul {
 
 
 
+
 /* Footer Section */
 .footer {
     background-color: #222;
@@ -603,4 +616,27 @@ body, ul {
 
 .footer a:hover {
     text-decoration: underline;
-}
+}  please do this responsive
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+

@@ -3,24 +3,24 @@
 @using Umbraco.Extensions
 
 @{
-    // Get ancestors or self, including the current page
+    
     var ancestors = Model.AncestorsOrSelf().OrderBy(x => x.Level);
-    var homePage = Umbraco.ContentAtRoot().FirstOrDefault(); // Get the root or homepage
-    var homePageName = "Home"; // Customize this to match your homepage
+    var homePage = Umbraco.ContentAtRoot().FirstOrDefault(); 
+    var homePageName = "Home"; 
 }
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         @if (homePage != null)
         {
-            // First item: Home page link
+           
             <li><a href="@homePage.Url()">@homePageName</a></li>
             <li><span>›</span></li>
         }
 
         @foreach (var ancestor in ancestors)
         {
-            // For other ancestors except the home page
+          
             if (!ancestor.Equals(homePage) && !ancestor.Equals(Model))
             {
                 <li><a href="@ancestor.Url()">@ancestor.Name</a></li>
